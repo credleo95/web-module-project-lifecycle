@@ -18,7 +18,8 @@ class App extends React.Component {
       axios.get('https://api.github.com/users/credleo95/followers')
     ])
     .then(( response => {
-      console.log(response[0].data)
+      // console.log(response[0].data)
+      console.log(response[1].data)
       this.setState({
         ...this.state, 
         userData: response[0].data,
@@ -30,6 +31,7 @@ class App extends React.Component {
       console.log("something went wrong", error)
     }))
   }
+  
   render(){
   return (
     <div>
@@ -39,6 +41,8 @@ class App extends React.Component {
         <h1>{this.state.userData.name}</h1>
         <h2>{this.state.userData.login}</h2>
         <img src={`${this.state.userData.avatar_url}`} alt="Omarius Headshot"/>
+        <h4>Followers: {this.state.userData.followers}</h4>
+        <p>Bio: {this.state.userData.bio}</p>
       </div>
       <div>
         <h1> Followers: </h1>
