@@ -32,6 +32,8 @@ this.setState({followerData: res[1].data})
       <div className="App">
         <h1>The Card component is below</h1>
         <Card data={this.state.cardData}/>
+        <br />
+        <h1>Follower Card Component Below</h1>
         {this.state.followerData.map(follower => {
           return <FollowerCard followerData={follower}/>
         })}
